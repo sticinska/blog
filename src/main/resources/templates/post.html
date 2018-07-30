@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="layout :: site-head">
+</head>
+<body>
+<h1>this is HOME</h1>
+<header th:replace="layout :: site-header"></header>
+
+
+			<div>
+
+				
+				<h2><td th:text="${post.title}"></td></h2>
+				<td th:text="${post.datePosted}"></td>
+				<p>
+					<td th:text="${post.content}"></td>
+				</p>
+				<p>comments go here</p>
+
+			</div>
+
+			
+		</tr>
+		
+</body>
+</html>
