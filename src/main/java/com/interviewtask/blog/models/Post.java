@@ -14,14 +14,14 @@ import javax.persistence.Table;
 public class Post {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@Column
 	private String title;
-	@Column
+	@Column(columnDefinition = "TEXT")	
 	private String content;
-	@Column
+	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private Date datePosted;
 	
 	public Post() {
