@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="layout :: site-head">
+</head>
+<body>
+<h1>this is HOME</h1>
+<header th:replace="layout :: site-header"></header>
+<!-- add a new post button for admin -->
+
+<tr th:each="p : ${posts}">
+			<div>
+
+				<a th:href="@{/posts/{postID} (postID=${p.id})}">
+				<h2><td th:text="${p.title}"></td></h2>
+				</a>
+				<td th:text="${p.datePosted}"></td>
+				<p>
+					<td th:text="${p.content}"></td>
+				</p>
+				
+
+			</div>
+
+			<div sec:authorize="hasAuthority('ADMIN')">
+			<!-- edit/delete post buttons for admin -->
+			
+			</div>
+		</tr>
+		
+</body>
+</html>

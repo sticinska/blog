@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:fragment="site-head">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" th:href="@{/css/main.css}" href="../static/css/main.css">
+
+</head>
+<body>
+	<header th:fragment="site-header">
+	<div id="navTab">
+        		<a href="/">POSTS</a>
+      			<a href="/about">ABOUT ME</a>
+       			<a href="/login" >#</a>
+			</div>
+		<div sec:authorize="!isAuthenticated()"></div>
+			
+		
+
+		<div sec:authorize="hasAuthority('ADMIN')"></div>
+
+	</header>
+
+
+	<footer th:fragment="site-footer"> &copy;CBS </footer>
+</body>
+</html>
