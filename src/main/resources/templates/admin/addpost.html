@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="layout :: site-head">
+</head>
+<body>
+<h1>this is HOME</h1>
+<header th:replace="layout :: site-header"></header>
+
+<form action="#" th:action="@{/admin/addPost}" th:object="${post}" method="post">
+
+<input th:field="*{title}" required placeholder="Title of your blog post goes here"><br>
+<input type="text"  required id="addPostContentBox"  th:field="*{content}" >
+<input type="submit" value="Add Post">
+</form>
+
+		
+</body>
+</html>
