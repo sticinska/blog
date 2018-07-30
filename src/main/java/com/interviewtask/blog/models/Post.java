@@ -25,13 +25,13 @@ public class Post {
 	private Date datePosted;
 	
 	public Post() {
-		
+		setDatePosted();
 	}
 	
 	public Post(String title, String content) {
 		setTitle(title);
 		setContent(content);
-		setDatePosted(new Date());
+		setDatePosted();
 	}
 	
 	public long getId() {
@@ -55,8 +55,8 @@ public class Post {
 	public Date getDatePosted() {
 		return datePosted;
 	}
-	public void setDatePosted(Date datePosted) {
-		this.datePosted = datePosted;
+	public void setDatePosted() {
+		this.datePosted = new Date();
 	}
 	
 	
