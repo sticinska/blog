@@ -32,8 +32,10 @@
 				</button>
 			</form>
 			
-			<form th:action="@{/admin/removePost/{postID} (postID=${p.id})}" method="get" >
-			<a th:href="@{/admin/editPost/{postID} (postID=${p.id})}"><i class="fas fa-pencil-alt"></i></i>edit</a>
+			<form th:action="@{/admin/editpost/{postID} (postID=${p.id})}" method="get" >
+			<button type="submit" class="faButton">
+  	  				<i class="fas fa-pencil-alt"></i>
+				</button>
 			</form>
 			
 			</div>

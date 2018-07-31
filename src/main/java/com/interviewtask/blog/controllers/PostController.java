@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.interviewtask.blog.models.Comment;
 import com.interviewtask.blog.models.Post;
@@ -44,6 +45,14 @@ public class PostController {
 		return "post";
 }
 	
+	@PostMapping("/addComment")
+	public String addCommentToPost(Comment comment) {
+		commentRepo.save(comment);
+		return "redirect:/posts/" + comment.getPostid().toString();
+	}
+	
+	
+	
 	@GetMapping("/admin/addPost")
 	public String addPostView(Model model) {
 		model.addAttribute("post", new Post());
@@ -51,23 +60,38 @@ public class PostController {
 	}
 	
 	@PostMapping("/admin/addPost")
-	public String addPostFormProcess(Post post) {
+	public String addPostProcess(Post post) {
 		postRepo.save(post);
 		return "redirect:/";
 	}
 	
-	@PostMapping("/addComment")
-	public String addCommentToPost(Comment comment) {
-		commentRepo.save(comment);
-		return "redirect:/posts/" + comment.getPostid().toString();
-	}
+	
 	
 	@RequestMapping(value = "/admin/removePost/{postID}", method = RequestMethod.GET)
-	public String movieDeleteProccess(@PathVariable(value = "postID") Long postID){
+	public String removePost(@PathVariable(value = "postID") Long postID){
 		commentRepo.deleteAllComentsByPostID(postID);
 		postRepo.deleteById(postID);
 		return "redirect:/";
-}
+	}
+	
+	
+	@RequestMapping(value = "/admin/editpost/{postID}", method = RequestMethod.GET)
+	public String postEditView(@PathVariable(value = "postID") Long postID, Model model) {
+
+		model.addAttribute("post",postRepo.findById(postID));
+		return "admin/editpost";
+	}
+	
+
+	@RequestMapping(value = "/admin/editpost", method = RequestMethod.POST)
+	public String postEditProccess(Post post) {
+		
+		postRepo.save(post);
+
+		return "redirect:/";
+	}
+	
+	
 
 	
 }
