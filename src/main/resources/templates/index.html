@@ -14,7 +14,7 @@
 			<div>
 
 				<a th:href="@{/posts/{postID} (postID=${p.id})}">
-				<h2><td th:text="${p.title}"></td></h2>
+				<h2 id="postTitle"><td th:text="${p.title}"></td></h2>
 				</a>
 				<td th:text="${p.datePosted}"></td>
 				<p>
@@ -26,8 +26,15 @@
 			<a th:href="@{/posts/{postID} (postID=${p.id})}"><i class="far fa-comments"></i><td th:text="${commentCount}"></td> comments</a>
 
 			<div sec:authorize="hasAuthority('ADMIN')">
-			<a th:href="@{/admin/removePost/{postID} (postID=${p.id})}"><i class="fas fa-times-circle"></i>delete</a>
+			<form onsubmit="return confirm('Do you really want to delete this post? \n' + document.getElementById('postTitle').innerHTML);" th:action="@{/admin/removePost/{postID} (postID=${p.id})}" method="get" >
+				<button type="submit" class="faButton">
+  	  				<i class="fas fa-times-circle"></i>
+				</button>
+			</form>
+			
+			<form th:action="@{/admin/removePost/{postID} (postID=${p.id})}" method="get" >
 			<a th:href="@{/admin/editPost/{postID} (postID=${p.id})}"><i class="fas fa-pencil-alt"></i></i>edit</a>
+			</form>
 			
 			</div>
 		</tr>

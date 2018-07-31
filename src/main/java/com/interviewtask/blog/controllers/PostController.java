@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.interviewtask.blog.models.Comment;
 import com.interviewtask.blog.models.Post;
@@ -60,6 +61,13 @@ public class PostController {
 		commentRepo.save(comment);
 		return "redirect:/posts/" + comment.getPostid().toString();
 	}
+	
+	@RequestMapping(value = "/admin/removePost/{postID}", method = RequestMethod.GET)
+	public String movieDeleteProccess(@PathVariable(value = "postID") Long postID){
+		commentRepo.deleteAllComentsByPostID(postID);
+		postRepo.deleteById(postID);
+		return "redirect:/";
+}
 
 	
 }
