@@ -25,11 +25,16 @@ public class Comment {
 	private String content;
 	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private Date datePosted;
-	@ManyToOne
-	@JoinColumn(name = "post_id")
-	private Post post;
+	@Column
+	private Long postid;
 	
 	
+	
+	
+	
+	public Comment() {
+		setDatePosted();
+	}
 	
 	public long getId() {
 		return id;
@@ -46,14 +51,20 @@ public class Comment {
 	public Date getDatePosted() {
 		return datePosted;
 	}
-	public void setDatePosted(Date datePosted) {
-		this.datePosted = datePosted;
+	public void setDatePosted() {
+		this.datePosted = new Date();
 	}
 	public String getCommenterName() {
 		return commenterName;
 	}
 	public void setCommenterName(String commenterName) {
 		this.commenterName = commenterName;
+	}
+	public Long getPostid() {
+		return postid;
+	}
+	public void setPostid(Long postid) {
+		this.postid = postid;
 	}
 	
 	

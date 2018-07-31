@@ -14,13 +14,36 @@
 				<td th:text="${post.datePosted}"></td>
 				<p>
 					<td th:text="${post.content}"></td>
+					
 				</p>
+				<p style="display:none" id="postpostid" ><td th:text="${post.id}"></td></p>
 				<p>comments go here</p>
 
 			</div>
 
+			<hr>
+			<form action="#"  th:attr="action=@{/addComment}" th:object="${newcomment}" method="post">
+
+				<input type="text" th:field="*{commenterName}" required placeholder="Your name"><br>
+				<input type="text"  required id="addComentContentBox"  placeholder="Say something here.." th:field="*{content}" >
+				<input type="hidden"  value="" id="postid" th:field="*{postid}">
+				
+				
+				<input type="submit" value="Add Comment">
+			</form>
+
 			
+			<tr th:each="c : ${comments}">
+			<td th:text="${c.commenterName} + ' '"></td>
+			<td th:text="${c.datePosted}"></td>
+			<p><td th:text="${c.content}"></td></p>
+			<hr>
 		</tr>
+		
+		<script>
+		//this is not good
+		document.getElementById("postid").value = document.getElementById("postpostid").innerHTML;
+		</script>
 		
 </body>
 </html>
