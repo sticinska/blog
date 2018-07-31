@@ -5,9 +5,12 @@
 <body>
 <h1>this is HOME</h1>
 <header th:replace="layout :: site-header"></header>
-<!-- add a new post button for admin -->
 
+<p>this is for admins only</p>
+<a href="/admin/addPost">add post</a>
+<h1>allpostsss</h1>
 <tr th:each="p : ${posts}">
+<hr>
 			<div>
 
 				<a th:href="@{/posts/{postID} (postID=${p.id})}">
@@ -20,12 +23,15 @@
 				
 
 			</div>
+			<a th:href="@{/posts/{postID} (postID=${p.id})}"><i class="far fa-comments"></i><td th:text="${commentCount}"></td> comments</a>
 
 			<div sec:authorize="hasAuthority('ADMIN')">
-			<!-- edit/delete post buttons for admin -->
+			<a th:href="@{/admin/removePost/{postID} (postID=${p.id})}"><i class="fas fa-times-circle"></i>delete</a>
+			<a th:href="@{/admin/editPost/{postID} (postID=${p.id})}"><i class="fas fa-pencil-alt"></i></i>edit</a>
 			
 			</div>
 		</tr>
+		
 		
 </body>
 </html>
