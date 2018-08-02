@@ -3,16 +3,21 @@ body{
 	font-family:sans-serif;
 	background-color:#FFD4D4;
 	width:100%;
+	 display: flex;
+  	flex-direction: column;
+  	min-height: 100%;
 	
 }
 a{
 	text-decoration: none;
+	color:#50415a;
 }
 
 a:visited {
-    color:inherit;
+    color:#50415a;
 }
 h1{
+	text-align:center;
 	color:#a37e94;
 }
 hr {
@@ -25,6 +30,7 @@ main{
 	width:100%;
 	margin-left:-10px;
 	background-color:#FFE8D4;
+	height: inherit;
 }
 
 #posts{
@@ -33,17 +39,19 @@ main{
 	padding:2%;
 	margin-left:auto;
 	margin-right:auto;
+
 	background-color: #FFF6EE;
 }
 
 #date{
-	color:#D8C9D2;
+	color:#c4acba;
 }
 
 #navTab{
 	width: 100%;
 	background-color: #F5CCE3;
 	margin-left:-10px;
+
 	height: 50px;
 	
 }
@@ -53,8 +61,18 @@ main{
     color: #ffff;
     text-align: center;
     padding: 15px;
+    
+    }
+    
+    #navTab a:hover { 
+    background-color: #e26dae;
     }
 
+#addPost{
+	padding:10px;
+	
+	background-color: white;
+}
 
 
 #addPostContentBox{

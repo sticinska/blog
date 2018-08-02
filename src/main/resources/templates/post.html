@@ -3,25 +3,28 @@
 <head th:replace="layout :: site-head">
 </head>
 <body>
-<h1>this is HOME</h1>
 <header th:replace="layout :: site-header"></header>
 
+<main>
+<br><br>
+<div id="posts">
 
 			<div>
 
 				
-				<h2><td th:text="${post.title}"></td></h2>
+				<h2 ><td th:text="${post.title}"></td></h2>
 				<p id="date" ><td th:text="${post.datePosted}"></td></p>
 				<p>
 					<td th:text="${post.content}"></td>
 					
 				</p>
 				<p style="display:none" id="postpostid" ><td th:text="${post.id}"></td></p>
-				<p>comments go here</p>
+
 
 			</div>
-
-			<hr>
+			<br><br>
+			<h3>Comments:</h3>
+			<hr style="background-color: #7d637f; color: #7d637f; ">
 			<form action="#"  th:attr="action=@{/addComment}" th:object="${newcomment}" method="post">
 
 				<input type="text" th:field="*{commenterName}" required placeholder="Your name"><br>
@@ -34,12 +37,20 @@
 
 			
 			<tr th:each="c : ${comments}">
-			<td th:text="${c.commenterName} + ' '"></td>
+			<p style="display:inline;"><td th:text="${c.commenterName} + ' '"></td></p>
 			<p id="date"><td th:text="${c.datePosted}"></td></p>
-			<p><td th:text="${c.content}"></td></p>
+			<p id="comment"><td th:text="${c.content}"></td></p>
+			<div sec:authorize="isAuthenticated()">
+			<form onsubmit="return confirm('Do you really want to delete this comment? \n' + document.getElementById('comment').innerHTML);" th:action="@{/admin/removeComment/{commentID} (commentID=${c.id})}" method="get" >
+				<button type="submit" class="faButton"> <i class="fas fa-times-circle"></i>
+				</button>
+			</form>
+			</div>
 			<hr>
 		</tr>
 		
+		</div>
+</main>	
 		<script>
 		//this is not good
 		document.getElementById("postid").value = document.getElementById("postpostid").innerHTML;

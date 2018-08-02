@@ -12,10 +12,17 @@
 </head>
 <body>
 	<header th:fragment="site-header">
+	<h1>Blog for Interview Task</h1>
 	<div id="navTab">
         		<a href="/">POSTS</a>
       			<a href="/about">ABOUT ME</a>
-       			<a href="/login" >#</a>
+      			<div sec:authorize="isAnonymous()">
+       			<a style="float: right; font-weight: bolder;"href="/login" >login</a>
+       			</div>
+       			<div sec:authorize="isAuthenticated()">
+       			<a style="float: right; font-weight: bolder;"href="/logout" >logout</a>
+       			</div>
+       			
 			</div>
 		
 	</header>
