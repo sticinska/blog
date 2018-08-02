@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -25,7 +26,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	    @Override
 	    protected void configure(HttpSecurity http) throws Exception {
 	        http.authorizeRequests()
-	                .antMatchers("/", "/about", "/post", "/post/**").permitAll()
+	                .antMatchers("/", "/about", "/posts	", "/posts/**", "/addComment").permitAll()
 	                .anyRequest().authenticated()
 	                .and()
 	            .formLogin()
@@ -33,7 +34,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	                .permitAll()
 	                .and()
 	            .logout()
-	                .permitAll();
+					.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+					.logoutSuccessUrl("/").and().exceptionHandling()
+					.accessDeniedPage("/access-denied");
+			http.csrf().disable();
+			http.headers().frameOptions().disable();
 	    }
 	    
 	    
