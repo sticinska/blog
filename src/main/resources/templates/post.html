@@ -41,7 +41,7 @@
 			<p id="date"><td th:text="${c.datePosted}"></td></p>
 			<p id="comment"><td th:text="${c.content}"></td></p>
 			<div sec:authorize="isAuthenticated()">
-			<form onsubmit="return confirm('Do you really want to delete this comment? \n' + document.getElementById('comment').innerHTML);" th:action="@{/admin/removeComment/{commentID} (commentID=${c.id})}" method="get" >
+			<form onsubmit="return confirm('Do you really want to delete this comment? \n' + document.getElementById('comment').innerHTML);" th:action="@{/removeComment/{commentID} (commentID=${c.id})}" method="get" >
 				<button type="submit" class="faButton"> <i class="fas fa-times-circle"></i>
 				</button>
 			</form>

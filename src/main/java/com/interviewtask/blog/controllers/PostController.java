@@ -58,6 +58,23 @@ public class PostController {
 		return "redirect:/posts/" + comment.getPostid().toString();
 	}
 	
+	@GetMapping("/removeComment/{commentID}")
+	public String removeComment(@PathVariable(value = "commentID") Long commentID){
+		
+		Comment comment = commentRepo.getOne(commentID);
+		
+		Post tmp = postRepo.findById(comment.getPostid()).get();
+		if(tmp.getCommentCount()==null) {
+			tmp.setCommentCount(0);
+		}else {
+			tmp.setCommentCount(tmp.getCommentCount()-1);
+		}
+			
+		postRepo.save(tmp);
+		commentRepo.deleteById(commentID);
+		return "redirect:/";
+	}
+	
 	
 	
 	@GetMapping("/admin/addPost")
