@@ -69,13 +69,9 @@
 		
 		
 		
-		
-		
-		
 		<dependency>
-  <groupId>joda-time</groupId>
-  <artifactId>joda-time</artifactId>
-  <version>2.10</version>
+    <groupId>org.thymeleaf.extras</groupId>
+    <artifactId>thymeleaf-extras-springsecurity4</artifactId>
 </dependency>
 	</dependencies>
 
