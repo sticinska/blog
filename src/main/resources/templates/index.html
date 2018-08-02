@@ -28,7 +28,7 @@
 				
 
 			</div>
-			<a th:href="@{/posts/{postID} (postID=${p.id})}"><i class="far fa-comments"></i><td th:text="${commentCount}"></td> comments</a>
+			<a th:href="@{/posts/{postID} (postID=${p.id})}"><i class="far fa-comments"></i><td th:text="' ' + ${p.commentCount}"></td> comments</a>
 
 			<div sec:authorize="isAuthenticated()">
 			<form onsubmit="return confirm('Do you really want to delete this post? \n' + document.getElementById('postTitle').innerHTML);" th:action="@{/admin/removePost/{postID} (postID=${p.id})}" method="get" >
