@@ -5,18 +5,21 @@
 <body>
 <h1>this is HOME</h1>
 <header th:replace="layout :: site-header"></header>
-
+<main>
 <p>this is for admins only</p>
 <a href="/admin/addPost">add post</a>
-<h1>allpostsss</h1>
+<p>this is for admins only</p> <br><br>
+
+<div id="posts">
 <tr th:each="p : ${posts}">
-<hr>
+<hr>	
+
 			<div>
 
-				<a th:href="@{/posts/{postID} (postID=${p.id})}">
-				<h2 id="postTitle"><td th:text="${p.title}"></td></h2>
-				</a>
-				<td th:text="${p.datePosted}"></td>
+				
+				<h2 style="margin-bottom:0px; "  id="postTitle"><a th:href="@{/posts/{postID} (postID=${p.id})}"><td th:text="${p.title}"></td></a></h2>
+				
+				<p id="date" ><td th:text="${p.datePosted}"></td></p>
 				<p>
 					<td th:text="${p.content}"></td>
 				</p>
@@ -39,8 +42,9 @@
 			</form>
 			
 			</div>
+			
 		</tr>
-		
-		
+		</div>
+	</main>	
 </body>
 </html>

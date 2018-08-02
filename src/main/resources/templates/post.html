@@ -11,7 +11,7 @@
 
 				
 				<h2><td th:text="${post.title}"></td></h2>
-				<td th:text="${post.datePosted}"></td>
+				<p id="date" ><td th:text="${post.datePosted}"></td></p>
 				<p>
 					<td th:text="${post.content}"></td>
 					
@@ -35,7 +35,7 @@
 			
 			<tr th:each="c : ${comments}">
 			<td th:text="${c.commenterName} + ' '"></td>
-			<td th:text="${c.datePosted}"></td>
+			<p id="date"><td th:text="${c.datePosted}"></td></p>
 			<p><td th:text="${c.content}"></td></p>
 			<hr>
 		</tr>
