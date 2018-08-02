@@ -1,13 +1,18 @@
-<html>
-<head>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="layout :: site-head">
 </head>
 <body>
-<h1>this is a login page</h1>
+<h1><a href="/">Blog for Interview Task</a></h1>
 
+<br><br>
+<div id="loginForm"><br>
 <form th:action="@{/login}" method="post">
-            <div><label> User Name : <input type="text" name="username"/> </label></div>
-            <div><label> Password: <input type="password" name="password"/> </label></div>
-            <div><input type="submit" value="Sign In"/></div>
+            <div><input class="loginFormInputs" type="text" autocomplete="off" name="username" placeholder="Username" /> </label></div><br>
+            <div><input class="loginFormInputs" type="password" autocomplete="off" name="password" placeholder="Password"/> </label></div><br>
+            <div><input id="loginButton"  type="submit" value="Sign In"/></div><br><br>
         </form>
+</div>
+
 </body>
 </html>
