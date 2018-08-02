@@ -9,7 +9,12 @@ public class WebController {
 
 
 	@RequestMapping("/about")
-	public String showAllPosts(Model model) {
+	public String showAboutPage(Model model) {
 		return "about";
+	}
+	
+	@RequestMapping("/login")
+	public String loginPage(Model model) {
+		return "login";
 	}
 }
