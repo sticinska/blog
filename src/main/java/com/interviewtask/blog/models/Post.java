@@ -24,16 +24,27 @@ public class Post {
 	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private Date datePosted;
 	
+	@Column
+	private Integer commentCount;
+	
 	public Post() {
 		setDatePosted();
 	}
 	
-	public Post(String title, String content) {
-		setTitle(title);
-		setContent(content);
-		setDatePosted();
-	}
 	
+	
+	public Integer getCommentCount() {
+		return commentCount;
+	}
+
+
+
+	public void setCommentCount(Integer commentCount) {
+		this.commentCount = commentCount;
+	}
+
+
+
 	public long getId() {
 		return id;
 	}

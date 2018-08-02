@@ -47,6 +47,14 @@ public class PostController {
 	@PostMapping("/addComment")
 	public String addCommentToPost(Comment comment) {
 		commentRepo.save(comment);
+		Post tmp = postRepo.findById(comment.getPostid()).get();
+		if(tmp.getCommentCount()==null) {
+			tmp.setCommentCount(1);
+		}else {
+			tmp.setCommentCount(tmp.getCommentCount()+1);
+		}
+		
+		postRepo.save(tmp);
 		return "redirect:/posts/" + comment.getPostid().toString();
 	}
 	
