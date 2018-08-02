@@ -25,7 +25,7 @@ public class Post {
 	private Date datePosted;
 	
 	@Column
-	private Integer commentCount;
+	private Integer commentCount = 0;
 	
 	public Post() {
 		setDatePosted();
