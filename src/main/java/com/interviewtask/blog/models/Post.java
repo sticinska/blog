@@ -22,17 +22,29 @@ public class Post {
 	@Column(columnDefinition = "TEXT")	
 	private String content;
 	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-	private Date datePosted;
-	
+	private Date datePosted = new Date();
+	@Column(columnDefinition = "BIT")
+	private Boolean edited;
 	@Column
 	private Integer commentCount = 0;
 	
 	public Post() {
-		setDatePosted();
 	}
 	
 	
 	
+	public Boolean getEdited() {
+		return edited;
+	}
+
+
+
+	public void setEdited(Boolean edited) {
+		this.edited = edited;
+	}
+
+
+
 	public Integer getCommentCount() {
 		return commentCount;
 	}
@@ -66,8 +78,8 @@ public class Post {
 	public Date getDatePosted() {
 		return datePosted;
 	}
-	public void setDatePosted() {
-		this.datePosted = new Date();
+	public void setDatePosted(Date date) {
+		this.datePosted = date;
 	}
 	
 	

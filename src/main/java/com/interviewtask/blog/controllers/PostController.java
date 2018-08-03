@@ -109,7 +109,7 @@ public class PostController {
 
 	@RequestMapping(value = "/admin/editpost", method = RequestMethod.POST)
 	public String postEditProccess(Post post) {
-		
+		post.setEdited(true);
 		postRepo.save(post);
 
 		return "redirect:/";

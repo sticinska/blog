@@ -19,8 +19,10 @@
 			<div>
 
 				
-				<h2 style="margin-bottom:0px; "  ><a id="postTitle" th:href="@{/posts/{postID} (postID=${p.id})}"><td th:text="${p.title}"></td></a></h2>
-				
+				<h2 style="margin-bottom:0px;display:inline; "  ><a id="postTitle" th:href="@{/posts/{postID} (postID=${p.id})}"><td th:text="${p.title}"></td></a></h2>
+				<div style="display:inline; color:#C4ACBA" th:if="${p.edited}">
+            		<i class="fas fa-pencil-alt"></i>
+        		</div>
 				<p id="date" ><td th:text="${p.datePosted}"></td></p>
 				<p>
 					<td th:text="${p.content}"></td>
