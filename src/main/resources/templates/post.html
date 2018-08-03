@@ -28,7 +28,7 @@
 			<form action="#"  th:attr="action=@{/addComment}" th:object="${newcomment}" method="post">
 
 				<input type="text" th:field="*{commenterName}" required placeholder="Your name"><br>
-				<input type="text"  autocomplete="off"  required id="addComentContentBox"  placeholder="Say something here.." th:field="*{content}" >
+				<textarea autocomplete="off"  required id="addComentContentBox" rows="3" maxlength="350" placeholder="Say something here.." th:field="*{content}" ></textarea>
 				<input type="hidden"  value="" id="postid" th:field="*{postid}">
 				
 				

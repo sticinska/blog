@@ -28,6 +28,7 @@ h2{
 h1{
 	text-align:center;
 	color:#a37e94;
+	text-shadow: 3px 3px  #d7c6d0; 
 }
 hr {
     border: none;
@@ -120,6 +121,7 @@ button:hover{
 }
 .addEditPostFormInputs{
 	width:80%;
+	
 	border:2px solid #a37e94;
 	border-radius: 5px;
 	font-size: 14pt;

@@ -19,7 +19,7 @@
 			<div>
 
 				
-				<h2 style="margin-bottom:0px; "  id="postTitle"><a th:href="@{/posts/{postID} (postID=${p.id})}"><td th:text="${p.title}"></td></a></h2>
+				<h2 style="margin-bottom:0px; "  ><a id="postTitle" th:href="@{/posts/{postID} (postID=${p.id})}"><td th:text="${p.title}"></td></a></h2>
 				
 				<p id="date" ><td th:text="${p.datePosted}"></td></p>
 				<p>
@@ -31,7 +31,7 @@
 			<a th:href="@{/posts/{postID} (postID=${p.id})}"><i class="far fa-comments"></i><td th:text="' ' + ${p.commentCount}"></td> comments</a>
 			<br><br>
 			<div sec:authorize="isAuthenticated()">
-			<form class="faButton" onsubmit="return confirm('Do you really want to delete this post? \n' + document.getElementById('postTitle').innerHTML);" th:action="@{/admin/removePost/{postID} (postID=${p.id})}" method="get" >
+			<form class="faButton" onsubmit="return confirm('Do you really want to delete this post? \n\n ' + document.getElementById('postTitle').innerHTML);" th:action="@{/admin/removePost/{postID} (postID=${p.id})}" method="get" >
 				<button type="submit" >
   	  				<i class="fas fa-times-circle"></i> remove post
 				</button>
