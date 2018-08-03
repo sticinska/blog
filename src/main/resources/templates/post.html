@@ -28,7 +28,7 @@
 			<form action="#"  th:attr="action=@{/addComment}" th:object="${newcomment}" method="post">
 
 				<input type="text" th:field="*{commenterName}" required placeholder="Your name"><br>
-				<input type="text"  required id="addComentContentBox"  placeholder="Say something here.." th:field="*{content}" >
+				<input type="text"  autocomplete="off"  required id="addComentContentBox"  placeholder="Say something here.." th:field="*{content}" >
 				<input type="hidden"  value="" id="postid" th:field="*{postid}">
 				
 				
@@ -42,7 +42,7 @@
 			<p id="comment"><td th:text="${c.content}"></td></p>
 			<div sec:authorize="isAuthenticated()">
 			<form onsubmit="return confirm('Do you really want to delete this comment? \n' + document.getElementById('comment').innerHTML);" th:action="@{/removeComment/{commentID} (commentID=${c.id})}" method="get" >
-				<button type="submit" class="faButton"> <i class="fas fa-times-circle"></i>
+				<button type="submit" class="faButton"> <i class="fas fa-times-circle"></i> remove comment
 				</button>
 			</form>
 			</div>
@@ -51,6 +51,8 @@
 		
 		</div>
 </main>	
+
+<br><br><div th:replace="layout :: site-footer"></div>
 		<script>
 		//this is not good
 		document.getElementById("postid").value = document.getElementById("postpostid").innerHTML;

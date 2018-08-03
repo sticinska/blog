@@ -80,9 +80,22 @@ main{
 
 #addPost{
 	padding:10px;
-	background-color: white;
+	background-color: #50415a;
+	color:white;
+}
+.faButton{
+	display:inline;
 }
 
+button{
+	background-color:#50415a;
+	color:white;
+	border:none;
+	padding:4px;
+}
+button:hover{
+	cursor:pointer;
+}
 
 #loginForm{
 	box-shadow: 0px 0px 7px 0px #a37e94;
@@ -91,7 +104,6 @@ main{
 	padding:2%;
 	margin-left:auto;
 	margin-right:auto;
-
 	background-color: #FFF6EE;
 	
 }
@@ -108,7 +120,6 @@ main{
 }
 .addEditPostFormInputs{
 	width:80%;
-	
 	border:2px solid #a37e94;
 	border-radius: 5px;
 	font-size: 14pt;
@@ -127,4 +138,12 @@ textarea{
 	color:white;
 	border:2px solid #78566a;
 	border-radius: 4px;
+}
+
+.footer{
+	padding-top:30px;
+	text-align: center;
+	left:0;
+	width: 100%;
+	bottom: 0;
 }

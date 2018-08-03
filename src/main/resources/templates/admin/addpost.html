@@ -8,8 +8,8 @@
 <main><div id="posts">
 <form class="addEditPostForm" action="#" th:action="@{/admin/addPost}" th:object="${post}" method="post">
 
-<input class="addEditPostFormInputs" th:field="*{title}" required placeholder="Title of your blog post goes here"><br>
-<textarea class="addEditPostFormInputs" required  th:field="*{content}" ></textarea>
+<input class="addEditPostFormInputs"  autocomplete="off"  th:field="*{title}" required placeholder="Title of your blog post goes here"><br>
+<textarea class="addEditPostFormInputs" required  autocomplete="off"  th:field="*{content}" ></textarea>
 <input type="submit" value="Add Post">
 </form>
 
