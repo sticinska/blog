@@ -5,14 +5,14 @@
 <body>
 <h1>this is HOME</h1>
 <header th:replace="layout :: site-header"></header>
+<main><div id="posts">
+<form class="addEditPostForm" action="#" th:action="@{/admin/addPost}" th:object="${post}" method="post">
 
-<form action="#" th:action="@{/admin/addPost}" th:object="${post}" method="post">
-
-<input th:field="*{title}" required placeholder="Title of your blog post goes here"><br>
-<input type="text"  required id="addPostContentBox"  th:field="*{content}" >
+<input class="addEditPostFormInputs" th:field="*{title}" required placeholder="Title of your blog post goes here"><br>
+<textarea class="addEditPostFormInputs" required  th:field="*{content}" ></textarea>
 <input type="submit" value="Add Post">
 </form>
 
-		
+</div></main>		
 </body>
 </html>

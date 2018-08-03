@@ -37,8 +37,8 @@
 
 			
 			<tr th:each="c : ${comments}">
-			<p style="display:inline;"><td th:text="${c.commenterName} + ' '"></td></p>
-			<p id="date"><td th:text="${c.datePosted}"></td></p>
+			<p style="display:inline; font-weight:bold"><td th:text="${c.commenterName} + ' '"></td></p>
+			<p style="display:inline;" id="date"><td th:text="${c.datePosted}"></td></p>
 			<p id="comment"><td th:text="${c.content}"></td></p>
 			<div sec:authorize="isAuthenticated()">
 			<form onsubmit="return confirm('Do you really want to delete this comment? \n' + document.getElementById('comment').innerHTML);" th:action="@{/removeComment/{commentID} (commentID=${c.id})}" method="get" >
